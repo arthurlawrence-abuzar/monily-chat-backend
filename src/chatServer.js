@@ -10,6 +10,9 @@ const io = socketio(server, {
     origin: "*",
   },
 });
+app.get("/*", function (req, res) {
+  res.send("Hello");
+});
 io.on("connection", (socket) => {
   console.log("a user connected :D");
   socket.on("message", (message) => {
